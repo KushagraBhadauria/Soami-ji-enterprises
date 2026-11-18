@@ -15,8 +15,8 @@ export const services = [
   },
   {
     icon: "Laptop",
-    title: "Laptop & Computer Repair",
-    text: "Chip-level and part-level repair for laptops and desktops: screen, keyboard, battery, motherboard, hinge, overheating and data recovery.",
+    title: "Laptop, Computer & Printer Repair",
+    text: "Chip-level and part-level repair for laptops, desktops and printers: screen, keyboard, battery, motherboard, paper jams, print-head cleaning and data recovery.",
     points: ["All major brands", "Genuine & compatible parts", "Transparent pricing"],
   },
   {
@@ -39,7 +39,7 @@ export const services = [
   },
 ] as const;
 
-export const brands = ["Hikvision", "CP Plus", "Dahua", "Honeywell", "Godrej", "TP-Link", "HP", "Dell", "Lenovo", "Asus", "Acer", "Apple", "Seagate", "WD"];
+export const brands = ["Hikvision", "CP Plus", "Dahua", "Honeywell", "Godrej", "TP-Link", "HP", "Dell", "Lenovo", "Asus", "Acer", "Apple", "Seagate", "WD", "Canon", "Epson", "Brother"];
 
 export const faqs = [
   {

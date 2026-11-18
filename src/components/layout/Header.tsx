@@ -66,7 +66,7 @@ export function Header() {
                   <div className="invisible absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
                     <div className="grid grid-cols-2 gap-1 rounded-2xl border border-slate-100 bg-white p-2 shadow-lift">
                       {categories.map((c) => (
-                        <Link key={c.slug} href={`/products/${c.slug}`} className="flex gap-3 rounded-xl p-3 hover:bg-slate-50">
+                        <Link key={c.slug} href={`/products/${c.slug}`} className="flex gap-3 rounded-xl p-3 hover:bg-slate-50 [&:last-child:nth-child(odd)]:col-span-2">
                           <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-brand-50 text-brand-600">
                             <CategoryIcon icon={c.icon} className="h-5 w-5" />
                           </span>
@@ -117,7 +117,7 @@ export function Header() {
               ))}
               <div className="mt-2 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
                 {categories.map((c) => (
-                  <Link key={c.slug} href={`/products/${c.slug}`} className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-semibold">
+                  <Link key={c.slug} href={`/products/${c.slug}`} className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-semibold [&:last-child:nth-child(odd)]:col-span-2">
                     <CategoryIcon icon={c.icon} className="h-4 w-4 text-brand-600" /> {c.short}
                   </Link>
                 ))}

@@ -63,7 +63,7 @@ export function UploadForm({ defaultLocation }: { defaultLocation: string }) {
         {/* 1. Catalogue */}
         <Card step={1} title="Choose catalogue">
           <input type="hidden" name="category" value={category} />
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             {categories.map((c) => (
               <button type="button" key={c.slug} onClick={() => setCategory(c.slug)} className={clsx("flex flex-col items-center gap-2 rounded-2xl border-2 p-4 text-center text-sm font-bold transition", category === c.slug ? "border-brand-600 bg-brand-50 text-brand-700" : "border-slate-200 text-slate-600 hover:border-slate-300")}>
                 <CategoryIcon icon={c.icon} className="h-7 w-7" />

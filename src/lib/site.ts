@@ -51,14 +51,14 @@ export const site = {
 
 export const units = ["PCS", "MTR", "BDL", "SET", "BOX", "ROLL", "NOS"] as const;
 
-export type Category = "camera" | "laptop" | "camera-accessories" | "laptop-accessories";
+export type Category = "camera" | "laptop" | "camera-accessories" | "laptop-accessories" | "printers";
 
 export const categories: {
   slug: Category;
   title: string;
   short: string;
   blurb: string;
-  icon: "cctv" | "laptop" | "cable" | "mouse";
+  icon: "cctv" | "laptop" | "cable" | "mouse" | "printer";
 }[] = [
   {
     slug: "camera",
@@ -87,6 +87,13 @@ export const categories: {
     short: "Laptop Acc.",
     blurb: "Chargers, batteries, keyboards, mice, RAM, SSDs, bags and more.",
     icon: "mouse",
+  },
+  {
+    slug: "printers",
+    title: "Printers & Accessories",
+    short: "Printers",
+    blurb: "Inkjet, laser & ink-tank printers, cartridges, toner, ink and cables.",
+    icon: "printer",
   },
 ];
 
