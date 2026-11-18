@@ -46,7 +46,7 @@ export async function saveProduct(_: SaveState, fd: FormData): Promise<SaveState
   if (!(mrp > 0)) return { error: "Enter a valid MRP" };
   if (discount < 0 || discount > 100) return { error: "Discount must be between 0 and 100%" };
   if (!image || image.size === 0) return { error: "Please choose a product photo" };
-  if (image.size > 6 * 1024 * 1024) return { error: "Photo is too large (max 6 MB)" };
+  if (image.size > 4 * 1024 * 1024) return { error: "Photo is too large (max 4 MB)" };
   if (!/^image\/(jpeg|png|webp|gif|avif)$/.test(image.type)) return { error: "Photo must be JPG, PNG or WEBP" };
 
   try {

@@ -36,9 +36,11 @@ export function UploadForm({ defaultLocation }: { defaultLocation: string }) {
     } else if (state.error) toast.error(state.error);
   }, [state]);
 
-  const pickFile = (f?: File | null) => {
-    if (!f) return;
-    if (!f.type.startsWith("image/")) return toast.error("Please choose an image file");
+  const pickFile = async (raw?: File | null) => {
+    if (!raw) return;
+    if (!raw.type.startsWith("image/")) return toast.error("Please choose an image file");
+    const f = await shrinkImage(raw);
+    if (f.size > 4 * 1024 * 1024) return toast.error("Photo is too large — please choose a smaller one");
     const dt = new DataTransfer();
     dt.items.add(f);
     if (fileRef.current) fileRef.current.files = dt.files;
@@ -101,7 +103,7 @@ export function UploadForm({ defaultLocation }: { defaultLocation: string }) {
             >
               <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-brand-600 shadow-card"><ImagePlus className="h-7 w-7" /></span>
               <span className="font-bold">Tap to take / choose a photo</span>
-              <span className="text-sm text-slate-500">or drag & drop · JPG, PNG, WEBP · max 6 MB</span>
+              <span className="text-sm text-slate-500">or drag & drop · JPG, PNG, WEBP · auto-resized</span>
             </button>
           )}
         </Card>
@@ -196,6 +198,28 @@ export function UploadForm({ defaultLocation }: { defaultLocation: string }) {
       </div>
     </form>
   );
+}
+
+/** Resize phone photos to max 1600px JPEG (~200–500 KB) so uploads are fast and fit hosting limits. */
+async function shrinkImage(file: File): Promise<File> {
+  try {
+    const bmp = await createImageBitmap(file);
+    const max = 1600;
+    const scale = Math.min(1, max / Math.max(bmp.width, bmp.height));
+    if (scale === 1 && file.size < 1024 * 1024) return file;
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(bmp.width * scale);
+    canvas.height = Math.round(bmp.height * scale);
+    const ctx = canvas.getContext("2d")!;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bmp, 0, 0, canvas.width, canvas.height);
+    const blob: Blob | null = await new Promise((r) => canvas.toBlob(r, "image/jpeg", 0.85));
+    if (!blob) return file;
+    return new File([blob], file.name.replace(/\.[^.]+$/, "") + ".jpg", { type: "image/jpeg" });
+  } catch {
+    return file;
+  }
 }
 
 function Card({ step, title, children }: { step: number; title: string; children: React.ReactNode }) {
