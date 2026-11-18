@@ -1,0 +1,36 @@
+{
+  "name": "soamiji-computers",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.1",
+    "@fontsource/noto-sans": "^5.1.1",
+    "@fontsource/plus-jakarta-sans": "^5.1.1",
+    "@react-pdf/renderer": "4.3.0",
+    "@supabase/supabase-js": "2.119.0",
+    "clsx": "2.1.1",
+    "lucide-react": "0.468.0",
+    "next": "15.5.29",
+    "nodemailer": "6.9.16",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "server-only": "^0.0.1",
+    "sonner": "1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/nodemailer": "6.4.17",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.2"
+  }
+}
