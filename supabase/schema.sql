@@ -8,7 +8,7 @@ create extension if not exists "pgcrypto";
 -- Products (4 catalogues)
 create table if not exists public.products (
   id          uuid primary key default gen_random_uuid(),
-  category    text not null check (category in ('camera','laptop','camera-accessories','laptop-accessories','printers')),
+  category    text not null check (category in ('camera','laptop','camera-accessories','laptop-accessories','printers','software')),
   name        text not null,
   description text not null default '',
   location    text not null default '',

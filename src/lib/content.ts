@@ -39,7 +39,7 @@ export const services = [
   },
 ] as const;
 
-export const brands = ["Hikvision", "CP Plus", "Dahua", "Honeywell", "Godrej", "TP-Link", "HP", "Dell", "Lenovo", "Asus", "Acer", "Apple", "Seagate", "WD", "Canon", "Epson", "Brother"];
+export const brands = ["Hikvision", "CP Plus", "Dahua", "Honeywell", "Godrej", "TP-Link", "HP", "Dell", "Lenovo", "Asus", "Acer", "Apple", "Seagate", "WD", "Canon", "Epson", "Brother", "Quick Heal", "K7", "Microsoft"];
 
 export const faqs = [
   {

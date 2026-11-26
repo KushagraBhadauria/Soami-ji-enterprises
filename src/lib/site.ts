@@ -49,16 +49,16 @@ export const site = {
   },
 };
 
-export const units = ["PCS", "MTR", "BDL", "SET", "BOX", "ROLL", "NOS"] as const;
+export const units = ["PCS", "MTR", "BDL", "SET", "BOX", "ROLL", "NOS", "LICENSE", "USER"] as const;
 
-export type Category = "camera" | "laptop" | "camera-accessories" | "laptop-accessories" | "printers";
+export type Category = "camera" | "laptop" | "camera-accessories" | "laptop-accessories" | "printers" | "software";
 
 export const categories: {
   slug: Category;
   title: string;
   short: string;
   blurb: string;
-  icon: "cctv" | "laptop" | "cable" | "mouse" | "printer";
+  icon: "cctv" | "laptop" | "cable" | "mouse" | "printer" | "shield";
 }[] = [
   {
     slug: "camera",
@@ -94,6 +94,13 @@ export const categories: {
     short: "Printers",
     blurb: "Inkjet, laser & ink-tank printers, cartridges, toner, ink and cables.",
     icon: "printer",
+  },
+  {
+    slug: "software",
+    title: "Antivirus & Software",
+    short: "Software",
+    blurb: "Genuine antivirus, Windows, MS Office and other licences — installed for you.",
+    icon: "shield",
   },
 ];
 
